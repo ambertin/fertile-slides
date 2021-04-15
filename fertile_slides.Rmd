@@ -51,7 +51,7 @@ style_mono_light(base_color = "#23395b")
 7. Accessing project materials
 
 ```{r, echo = FALSE, fig.align='center', out.height=270, out.width=250}
-knitr::include_graphics("fertile-hex.png")
+knitr::include_graphics("images/fertile-hex.png")
 ```
 
 ---
@@ -86,17 +86,17 @@ Half cannot even reproduce their own!
 Some fields have reproducibility rate <10%.
 
 ```{r, echo = FALSE, out.width = '50%'}
-knitr::include_graphics("nature-1.jpeg")
+knitr::include_graphics("images/nature-1.jpeg")
 ```
 
 ---
 ## The reproducibility crisis
 ```{r, echo = FALSE, out.width = '60%'}
-knitr::include_graphics("nature-2.png")
+knitr::include_graphics("images/nature-2.png")
 ```
 
 ---
-background-image: url("tidy-badge.png")
+background-image: url("images/tidy-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -116,7 +116,7 @@ background-size: 30%
 
 
 ---
-background-image: url("structure-badge.png")
+background-image: url("images/structure-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -132,7 +132,7 @@ background-size: 30%
 
 
 ---
-background-image: url("documentation-badge.png")
+background-image: url("images/documentation-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -152,7 +152,7 @@ background-size: 30%
 
 
 ---
-background-image: url("paths-badge.png")
+background-image: url("images/paths-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -169,7 +169,7 @@ background-size: 30%
 
 
 ---
-background-image: url("randomness-badge.png")
+background-image: url("images/randomness-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -181,7 +181,7 @@ background-size: 30%
 - If used, seed must be set
 
 ---
-background-image: url("style-badge.png")
+background-image: url("images/style-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -197,7 +197,7 @@ background-size: 30%
 ## Attempts to address reproducibility: journals
 
 ```{r, echo = FALSE, out.width='80%'}
-knitr::include_graphics("stats-journals.png")
+knitr::include_graphics("images/stats-journals.png")
 ```
 - Even if you have a reproducibility statement that does not mean that all the articles are reproducible!! 
 
@@ -232,7 +232,7 @@ knitr::include_graphics("stats-journals.png")
 - Continuous integration tools: `wercker`, `GitHub Actions`, `Travis CI`, `Circle CI`.
 
 ```{r, echo = FALSE}
-knitr::include_graphics('ci-tools.png')
+knitr::include_graphics('images/ci-tools.png')
 ```
 
 
@@ -286,7 +286,7 @@ reproducible and how to correct that in the future.
 `project_miceps`:
 
 ```{r, echo = FALSE, out.width = "80%"}
-knitr::include_graphics('sample-project.png')
+knitr::include_graphics('images/sample-project.png')
 ```
 
 
@@ -459,7 +459,7 @@ has_no_randomness('project_miceps')
 
 .small[
 ```{r, echo = FALSE}
-knitr::include_graphics('components-summary.png')
+knitr::include_graphics('images/components-summary.png')
 ```
 ]
 
@@ -473,21 +473,21 @@ knitr::include_graphics('components-summary.png')
 - `proj_badges()`: earn/display badges for different components, summary of project generation info
 
 ```{r badge-graphics, out.width="15%",  fig.show='hold', echo = FALSE}
-knitr::include_graphics(c("structure-badge.png", "tidy-badge.png", "documentation-badge.png", "paths-badge.png", "randomness-badge.png", "style-badge.png"))
+knitr::include_graphics(c("images/structure-badge.png", "images/tidy-badge.png", "images/documentation-badge.png", "images/paths-badge.png", "images/randomness-badge.png", "images/style-badge.png"))
 ```
 
 ---
 ## Overview functions
 
 ```{r, echo = FALSE, out.width = '80%'}
-knitr::include_graphics('badges-1.png')
+knitr::include_graphics('images/badges-1.png')
 ```
 
 ---
 ## Overview functions
 
 ```{r, echo = FALSE}
-knitr::include_graphics('badges-2.png')
+knitr::include_graphics('images/badges-2.png')
 ```
 
 ---
@@ -593,7 +593,7 @@ render_log_report('project_miceps')
 
 
 ```{r, echo = FALSE}
-knitr::include_graphics('journal-process-2.png')
+knitr::include_graphics('images/journal-process-2.png')
 ```
 
 ---
@@ -674,7 +674,7 @@ How software groups were blinded:
 - However, potential for A/B testing of other R software
 
 ```{r, echo = FALSE}
-knitr::include_graphics("a-b_testing.png")
+knitr::include_graphics("images/a-b_testing.png")
 ```
 
 
@@ -762,8 +762,8 @@ library(readr)
 library(tidyverse)
 
 
-fall2020 <- readr::read_csv("../data/Fall_2020_Single_Post_test.csv")
-jterm2021 <- readr::read_csv("../data/JTerm_2021_Pre_Post.csv")
+fall2020 <- readr::read_csv("data/Fall_2020_Single_Post_test.csv")
+jterm2021 <- readr::read_csv("data/JTerm_2021_Pre_Post.csv")
 jterm2021$Test <- factor(jterm2021$Test, levels = c("Pre", "Post"))
 
 ```
@@ -903,13 +903,13 @@ plot(jterm_model, which = c(1,2))
 ## Additional Info: Test Questions
 
 ```{r, echo = FALSE, out.width = '80%'}
-knitr::include_graphics("test-4.png")
+knitr::include_graphics("images/test-4.png")
 ```
 
 ---
 ## Additional Info: Test Questions
 
 ```{r, echo = FALSE, out.width = '80%'}
-knitr::include_graphics("test-8.png")
+knitr::include_graphics("images/test-8.png")
 ```
 

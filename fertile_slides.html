@@ -50,7 +50,7 @@ class: center, middle, inverse, title-slide
 6. Conclusion
 7. Accessing project materials
 
-&lt;img src="fertile-hex.png" width="250" height="270" style="display: block; margin: auto;" /&gt;
+&lt;img src="images/fertile-hex.png" width="250" height="270" style="display: block; margin: auto;" /&gt;
 
 ---
 ## What is reproducibility?
@@ -83,14 +83,14 @@ Half cannot even reproduce their own!
 
 Some fields have reproducibility rate &lt;10%.
 
-&lt;img src="nature-1.jpeg" width="50%" /&gt;
+&lt;img src="images/nature-1.jpeg" width="50%" /&gt;
 
 ---
 ## The reproducibility crisis
-&lt;img src="nature-2.png" width="60%" /&gt;
+&lt;img src="images/nature-2.png" width="60%" /&gt;
 
 ---
-background-image: url("tidy-badge.png")
+background-image: url("images/tidy-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -110,7 +110,7 @@ background-size: 30%
 
 
 ---
-background-image: url("structure-badge.png")
+background-image: url("images/structure-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -126,7 +126,7 @@ background-size: 30%
 
 
 ---
-background-image: url("documentation-badge.png")
+background-image: url("images/documentation-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -146,7 +146,7 @@ background-size: 30%
 
 
 ---
-background-image: url("paths-badge.png")
+background-image: url("images/paths-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -163,7 +163,7 @@ background-size: 30%
 
 
 ---
-background-image: url("randomness-badge.png")
+background-image: url("images/randomness-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -175,7 +175,7 @@ background-size: 30%
 - If used, seed must be set
 
 ---
-background-image: url("style-badge.png")
+background-image: url("images/style-badge.png")
 background-position: right bottom
 background-size: 30%
 
@@ -190,7 +190,7 @@ background-size: 30%
 ---
 ## Attempts to address reproducibility: journals
 
-&lt;img src="stats-journals.png" width="80%" /&gt;
+&lt;img src="images/stats-journals.png" width="80%" /&gt;
 - Even if you have a reproducibility statement that does not mean that all the articles are reproducible!! 
 
 ---
@@ -223,7 +223,7 @@ background-size: 30%
 
 - Continuous integration tools: `wercker`, `GitHub Actions`, `Travis CI`, `Circle CI`.
 
-&lt;img src="ci-tools.png" width="1047" /&gt;
+&lt;img src="images/ci-tools.png" width="1047" /&gt;
 
 
 ---
@@ -275,7 +275,7 @@ reproducible and how to correct that in the future.
 
 `project_miceps`:
 
-&lt;img src="sample-project.png" width="80%" /&gt;
+&lt;img src="images/sample-project.png" width="80%" /&gt;
 
 
 ---
@@ -299,10 +299,10 @@ reproducible and how to correct that in the future.
 ##  4 project_miceps/READ…       39 md    text/markdown              README.md     
 ##  5 project_miceps/anal…    5.21K Rmd   text/x-markdown            analysis.Rmd  
 ##  6 project_miceps/anal…    1.41M html  text/html                  analysis.html 
-##  7 project_miceps/citr…  188.75K png   image/png                  citrate_v_tim…
+##  7 project_miceps/citr…  187.09K png   image/png                  citrate_v_tim…
 ##  8 project_miceps/mice…   14.33K csv   text/csv                   mice.csv      
 ##  9 project_miceps/mice…      204 Rproj text/rstudio               miceps.Rproj  
-## 10 project_miceps/prot…  379.21K png   image/png                  proteins_v_ti…
+## 10 project_miceps/prot…   379.4K png   image/png                  proteins_v_ti…
 ## 11 project_miceps/soft…    5.34K txt   text/plain                 software-vers…
 ```
 
@@ -339,14 +339,14 @@ slice_tail(render_log_report('project_miceps'))
 ```
 
 ```
-## Reading from /Users/audreybertin/Documents/thesis/index/slides/project_miceps/.fertile_render_log.csv
+## Reading from /Users/audreybertin/Documents/fertile-slides/project_miceps/.fertile_render_log.csv
 ```
 
 ```
 ## # A tibble: 1 x 4
 ##   path          path_abs func        timestamp          
 ##   &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       &lt;dttm&gt;             
-## 1 LAST RENDERED &lt;NA&gt;     proj_render 2021-04-14 16:49:02
+## 1 LAST RENDERED &lt;NA&gt;     proj_render 2021-04-15 13:48:07
 ```
 ]
 ---
@@ -386,8 +386,8 @@ has_only_used_files("project_miceps")
 ## # A tibble: 2 x 1
 ##   path_abs                                                                      
 ##   &lt;chr&gt;                                                                         
-## 1 /Users/audreybertin/Documents/thesis/index/slides/project_miceps/Estrogen_Rec…
-## 2 /Users/audreybertin/Documents/thesis/index/slides/project_miceps/mice.csv
+## 1 /Users/audreybertin/Documents/fertile-slides/project_miceps/Estrogen_Receptor…
+## 2 /Users/audreybertin/Documents/fertile-slides/project_miceps/mice.csv
 ```
 ]
 
@@ -411,9 +411,9 @@ proj_suggest_moves(files)
 ## 3 project_mic…   10.97K docx  applica… Estrogen_… inst/other project_mi… file_m…
 ## 4 project_mic…    5.21K Rmd   text/x-… analysis.… vignettes  project_mi… file_m…
 ## 5 project_mic…    1.41M html  text/ht… analysis.… inst/text  project_mi… file_m…
-## 6 project_mic…  189.24K png   image/p… citrate_v… inst/image project_mi… file_m…
+## 6 project_mic…   188.6K png   image/p… citrate_v… inst/image project_mi… file_m…
 ## 7 project_mic…   14.33K csv   text/csv mice.csv   data-raw   project_mi… file_m…
-## 8 project_mic…  374.69K png   image/p… proteins_… inst/image project_mi… file_m…
+## 8 project_mic…  378.94K png   image/p… proteins_… inst/image project_mi… file_m…
 ## 9 project_mic…    5.34K txt   text/pl… software-… inst/text  project_mi… file_m…
 ```
 
@@ -604,7 +604,7 @@ has_no_randomness('project_miceps')
 ## Summary of Components
 
 .small[
-&lt;img src="components-summary.png" width="1697" /&gt;
+&lt;img src="images/components-summary.png" width="1697" /&gt;
 ]
 
 ---
@@ -616,17 +616,17 @@ has_no_randomness('project_miceps')
 
 - `proj_badges()`: earn/display badges for different components, summary of project generation info
 
-&lt;img src="structure-badge.png" width="15%" /&gt;&lt;img src="tidy-badge.png" width="15%" /&gt;&lt;img src="documentation-badge.png" width="15%" /&gt;&lt;img src="paths-badge.png" width="15%" /&gt;&lt;img src="randomness-badge.png" width="15%" /&gt;&lt;img src="style-badge.png" width="15%" /&gt;
+&lt;img src="images/structure-badge.png" width="15%" /&gt;&lt;img src="images/tidy-badge.png" width="15%" /&gt;&lt;img src="images/documentation-badge.png" width="15%" /&gt;&lt;img src="images/paths-badge.png" width="15%" /&gt;&lt;img src="images/randomness-badge.png" width="15%" /&gt;&lt;img src="images/style-badge.png" width="15%" /&gt;
 
 ---
 ## Overview functions
 
-&lt;img src="badges-1.png" width="80%" /&gt;
+&lt;img src="images/badges-1.png" width="80%" /&gt;
 
 ---
 ## Overview functions
 
-&lt;img src="badges-2.png" width="968" /&gt;
+&lt;img src="images/badges-2.png" width="968" /&gt;
 
 ---
 ## Overview functions: more customizable
@@ -674,7 +674,7 @@ fertile::read.csv
 ##     utils::read.csv(file, ...)
 ##   }
 ## }
-## &lt;bytecode: 0x7fcfb1f49418&gt;
+## &lt;bytecode: 0x7fa92baba818&gt;
 ## &lt;environment: namespace:fertile&gt;
 ```
 ]
@@ -701,23 +701,23 @@ render_log_report('project_miceps')
 ```
 
 ```
-## Reading from /Users/audreybertin/Documents/thesis/index/slides/project_miceps/.fertile_render_log.csv
+## Reading from /Users/audreybertin/Documents/fertile-slides/project_miceps/.fertile_render_log.csv
 ```
 
 ```
 ## # A tibble: 21 x 4
 ##    path                    path_abs                  func    timestamp          
 ##    &lt;chr&gt;                   &lt;chr&gt;                     &lt;chr&gt;   &lt;dttm&gt;             
-##  1 Seed @ Start            &lt;NA&gt;                      624     2021-04-14 16:48:29
-##  2 package:dplyr           &lt;NA&gt;                      base::… 2021-04-14 16:48:29
-##  3 package:readr           &lt;NA&gt;                      base::… 2021-04-14 16:48:29
-##  4 package:tidyr           &lt;NA&gt;                      base::… 2021-04-14 16:48:30
-##  5 package:ggplot2         &lt;NA&gt;                      base::… 2021-04-14 16:48:30
-##  6 package:purrr           &lt;NA&gt;                      base::… 2021-04-14 16:48:31
-##  7 Seed Before             &lt;NA&gt;                      624     2021-04-14 16:48:31
-##  8 /Users/audreybertin/Do… /Users/audreybertin/Docu… readr:… 2021-04-14 16:48:31
-##  9 Seed After              &lt;NA&gt;                      14      2021-04-14 16:48:32
-## 10 Seed Before             &lt;NA&gt;                      14      2021-04-14 16:48:32
+##  1 Seed @ Start            &lt;NA&gt;                      624     2021-04-15 13:47:46
+##  2 package:dplyr           &lt;NA&gt;                      base::… 2021-04-15 13:47:46
+##  3 package:readr           &lt;NA&gt;                      base::… 2021-04-15 13:47:46
+##  4 package:tidyr           &lt;NA&gt;                      base::… 2021-04-15 13:47:47
+##  5 package:ggplot2         &lt;NA&gt;                      base::… 2021-04-15 13:47:47
+##  6 package:purrr           &lt;NA&gt;                      base::… 2021-04-15 13:47:47
+##  7 Seed Before             &lt;NA&gt;                      624     2021-04-15 13:47:47
+##  8 /Users/audreybertin/Do… /Users/audreybertin/Docu… readr:… 2021-04-15 13:47:47
+##  9 Seed After              &lt;NA&gt;                      14      2021-04-15 13:47:48
+## 10 Seed Before             &lt;NA&gt;                      14      2021-04-15 13:47:48
 ## # … with 11 more rows
 ```
 ]
@@ -765,7 +765,7 @@ render_log_report('project_miceps')
 - Two methods: 1. Run fertile checks, 2. Require `proj_badges()` output
 
 
-&lt;img src="journal-process-2.png" width="960" /&gt;
+&lt;img src="images/journal-process-2.png" width="960" /&gt;
 
 ---
 ## Potential applications: teaching reproducibility
@@ -844,7 +844,7 @@ How software groups were blinded:
 - Not much in terms of `fertile`
 - However, potential for A/B testing of other R software
 
-&lt;img src="a-b_testing.png" width="1680" /&gt;
+&lt;img src="images/a-b_testing.png" width="1680" /&gt;
 
 
 ---
@@ -1071,12 +1071,12 @@ is_experimental &lt;- function(logname = whoami::username()) {
 ---
 ## Additional Info: Test Questions
 
-&lt;img src="test-4.png" width="80%" /&gt;
+&lt;img src="images/test-4.png" width="80%" /&gt;
 
 ---
 ## Additional Info: Test Questions
 
-&lt;img src="test-8.png" width="80%" /&gt;
+&lt;img src="images/test-8.png" width="80%" /&gt;
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
