@@ -1,0 +1,22 @@
+path,path_abs,func,timestamp
+Seed @ Start,NA,624,2021-04-14T16:48:29Z
+package:dplyr,NA,base::library,2021-04-14T16:48:29Z
+package:readr,NA,base::library,2021-04-14T16:48:29Z
+package:tidyr,NA,base::library,2021-04-14T16:48:30Z
+package:ggplot2,NA,base::library,2021-04-14T16:48:30Z
+package:purrr,NA,base::library,2021-04-14T16:48:31Z
+Seed Before,NA,624,2021-04-14T16:48:31Z
+/Users/audreybertin/Documents/thesis/index/slides/project_miceps/Blot_data_updated.csv,/Users/audreybertin/Documents/thesis/index/slides/project_miceps/Blot_data_updated.csv,readr::read_csv,2021-04-14T16:48:31Z
+Seed After,NA,14,2021-04-14T16:48:32Z
+Seed Before,NA,14,2021-04-14T16:48:32Z
+Blot_data_updated.csv,/Users/audreybertin/Documents/thesis/index/slides/project_miceps/Blot_data_updated.csv,readr::read_csv,2021-04-14T16:48:32Z
+Seed After,NA,28,2021-04-14T16:48:33Z
+proteins_v_time.png,/Users/audreybertin/Documents/thesis/index/slides/project_miceps/proteins_v_time.png,ggplot2::ggsave,2021-04-14T16:48:41Z
+Seed Before,NA,71,2021-04-14T16:48:48Z
+CS_data_redone.csv,/Users/audreybertin/Documents/thesis/index/slides/project_miceps/CS_data_redone.csv,readr::read_csv,2021-04-14T16:48:48Z
+Seed After,NA,78,2021-04-14T16:48:48Z
+citrate_v_time.png,/Users/audreybertin/Documents/thesis/index/slides/project_miceps/citrate_v_time.png,ggplot2::ggsave,2021-04-14T16:48:50Z
+package:skimr,NA,base::library,2021-04-14T16:48:54Z
+package:stargazer,NA,base::library,2021-04-14T16:48:57Z
+Seed @ End,NA,278,2021-04-14T16:49:02Z
+LAST RENDERED,NA,proj_render,2021-04-14T16:49:02Z

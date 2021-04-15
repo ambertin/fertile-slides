@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Addressing The Scientific Reproducibility Crisis Through Educational Software Integration</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Audrey Bertin" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Addressing The Scientific Reproducibility Crisis Through Educational Software Integration
+### Audrey Bertin
+### Smith College, ’21
+### April 29th, 2021
+
+---
+
+
+
+
+
+
+
+&lt;style type="text/css"&gt;
+.remark-code {
+  font-size: 24px;
+}
+
+.small .remark-code {
+  font-size: 80% !important;
+}
+.tiny .remark-code {
+  font-size: 50% !important;
+}
+&lt;/style&gt;
+
+
+
+---
+## Overview
+
+1. What is reproducibility and why is it lacking?
+2. Other attempts to address reproducibility and their shortcomings
+3. Why `fertile` is different
+4. How `fertile` works
+5. Potential applications and Smith College experiment
+6. Conclusion
+7. Accessing project materials
+
+&lt;img src="fertile-hex.png" width="250" height="270" style="display: block; margin: auto;" /&gt;
+
+---
+## What is reproducibility?
+
+&gt; In data science, research is considered fully __reproducible__ when the requisite code and data files produce identical results when run by another analyst.
+
+
+.center[VS]
+
+&gt; __Replicability__: The ability of a researcher to duplicate the results of a study when following the original procedure but collecting new data
+
+
+---
+## The benefits of reproducibility
+
+1. Trusting findings
+
+2. Receiving feedback
+
+3. Extending ideas
+
+---
+## The reproducibility crisis
+
+*Nature (2016)*: 52% respondents claim "crisis"
+
+Vast majority cannot reproduce others' work. 
+
+Half cannot even reproduce their own!
+
+Some fields have reproducibility rate &lt;10%.
+
+&lt;img src="nature-1.jpeg" width="50%" /&gt;
+
+---
+## The reproducibility crisis
+&lt;img src="nature-2.png" width="60%" /&gt;
+
+---
+background-image: url("tidy-badge.png")
+background-position: right bottom
+background-size: 30%
+
+## The six major components of reproducibility
+
+
+### Component 1: Basic project components made accessible to the public:
+
+- Data (raw and/or processed)
+
+- Metadata
+
+- Code
+
+- Related Software
+
+
+
+---
+background-image: url("structure-badge.png")
+background-position: right bottom
+background-size: 30%
+
+## The six major components of reproducibility
+
+### Component 2: Well-organized file structure:
+
+- Separate folders for different file types
+
+- No extraneous files
+
+- Minimal clutter
+
+
+---
+background-image: url("documentation-badge.png")
+background-position: right bottom
+background-size: 30%
+
+## The six major components of reproducibility
+
+
+### Component 3: The project is documented well:
+
+- Files are clearly named / ordered
+
+- A README is present
+
+- Code contains comments
+
+- Software dependencies are noted
+
+
+
+---
+background-image: url("paths-badge.png")
+background-position: right bottom
+background-size: 30%
+
+## The six major components of reproducibility
+
+
+### Component 4: Good file paths:
+
+- No absolute paths
+
+- No paths leading outside of a project’s directory
+
+- Only relative paths within directory
+
+
+---
+background-image: url("randomness-badge.png")
+background-position: right bottom
+background-size: 30%
+
+## The six major components of reproducibility
+
+
+### Component 5: Randomness is accounted for:
+
+- If used, seed must be set
+
+---
+background-image: url("style-badge.png")
+background-position: right bottom
+background-size: 30%
+
+## The six major components of reproducibility
+
+### Component 6: Code is readable and consistently styled:
+
+- Coherent style
+- Follow guide (e.g. `tidyverse`)
+
+
+---
+## Attempts to address reproducibility: journals
+
+&lt;img src="stats-journals.png" width="80%" /&gt;
+- Even if you have a reproducibility statement that does not mean that all the articles are reproducible!! 
+
+---
+## Attempts to address reproducibility: journals
+
+### TOP Factor
+
+- Helps measure state of academic reproducibility on the whole
+- Score range: 0-30
+- Approx 50% of journals = 5 or below
+- Only 5% score &gt; 15
+
+---
+## Attempts to address reproducibility: educational programs
+
+- Replication studies at Graduate level (Cambridge, Harvard, UNC, Penn State, Berkeley)
+- At undergraduate level, requirement for work to be completed in `.Rmd` (Smith, Duke)
+
+---
+## Attempts to address reproducibility: software
+
+- `rrtools`: create basic package structure, Docker dependency management
+- `orderly`: automation of projects
+- `workflowr`: version control
+- `checkers`: custom checks to assess reproducibility
+- `renv` (formerly `packrat`): dependency management
+- `drake`: makefiles
+- `reproducible`: caching to speed up analysis
+
+
+- Continuous integration tools: `wercker`, `GitHub Actions`, `Travis CI`, `Circle CI`.
+
+&lt;img src="ci-tools.png" width="1047" /&gt;
+
+
+---
+## Shortcomings of current attempts
+
+- Journals:
+
+    1. Authors lack knowledge and/or time to make changes
+    2. Reproducibility review is time/cost intensive for journals
+
+- Education:
+
+    1. Workshops often optional
+    2. Only really at graduate level
+    3. Takes time away from other important class topics
+    4. Takes a lot of effort for professor to set up
+
+- Software:
+
+    1. Packages narrow in scope
+    2. Complex functions, bad for new users
+    3. Cumbersome, with steep learning curve
+    4. CI tools: lack software-specific tools 
+
+---
+## Setting `fertile` apart: package goals
+
+1) Be simple, with a small library of functions/tools that are straightforward to use.
+
+2) Be accessible to a variety of users, with a relatively small learning curve.
+
+3) Be able to address a wide variety of aspects of reproducibility, rather than just
+one or two key issues.
+
+4) Have features specific to a particular coding language that can address that
+language’s unique challenges.
+
+5) Be customizable, allowing users to choose for themselves which aspects of
+reproducibility they want to focus on.
+
+6) Be educational, teaching those that use it about why their projects are not
+reproducible and how to correct that in the future.
+
+7) Be applicable to a wide variety of domains.
+
+
+---
+## R Projects
+
+`project_miceps`:
+
+&lt;img src="sample-project.png" width="80%" /&gt;
+
+
+---
+
+## Component 1: accessible project files
+
+.small[
+
+
+```r
+ proj_analyze_files("project_miceps")
+```
+
+```
+## # A tibble: 11 x 5
+##    file                     size ext   mime                       path_rel      
+##    &lt;fs::path&gt;           &lt;fs::by&gt; &lt;chr&gt; &lt;chr&gt;                      &lt;fs::path&gt;    
+##  1 project_miceps/Blot…   14.43K csv   text/csv                   Blot_data_upd…
+##  2 project_miceps/CS_d…    7.39K csv   text/csv                   CS_data_redon…
+##  3 project_miceps/Estr…   10.97K docx  application/vnd.openxmlfo… Estrogen_Rece…
+##  4 project_miceps/READ…       39 md    text/markdown              README.md     
+##  5 project_miceps/anal…    5.21K Rmd   text/x-markdown            analysis.Rmd  
+##  6 project_miceps/anal…    1.41M html  text/html                  analysis.html 
+##  7 project_miceps/citr…  188.75K png   image/png                  citrate_v_tim…
+##  8 project_miceps/mice…   14.33K csv   text/csv                   mice.csv      
+##  9 project_miceps/mice…      204 Rproj text/rstudio               miceps.Rproj  
+## 10 project_miceps/prot…  379.21K png   image/png                  proteins_v_ti…
+## 11 project_miceps/soft…    5.34K txt   text/plain                 software-vers…
+```
+
+
+```r
+has_readme("project_miceps")
+```
+
+```
+## ✓ Checking for README file(s) at root level
+```
+]
+
+---
+## Component 1: accessible project files
+
+- `sandbox()`: copying project to temp directory
+
+- `proj_render()`
+
+.small[
+
+
+```r
+proj_render("project_miceps")
+```
+
+```
+## ── Rendering R scripts... ────────────────────────────────── fertile 1.1.9003 ──
+```
+
+```r
+slice_tail(render_log_report('project_miceps'))
+```
+
+```
+## Reading from /Users/audreybertin/Documents/thesis/index/slides/project_miceps/.fertile_render_log.csv
+```
+
+```
+## # A tibble: 1 x 4
+##   path          path_abs func        timestamp          
+##   &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       &lt;dttm&gt;             
+## 1 LAST RENDERED &lt;NA&gt;     proj_render 2021-04-14 16:49:02
+```
+]
+---
+## Component 2: organized project structure
+
+- `has_proj_root()` / `has_no_nested_proj_root()`
+
+- `has_tidy_` series
+
+.small[
+
+```r
+has_only_used_files("project_miceps")
+```
+
+```
+## Joining, by = "path_abs"
+```
+
+```
+## ● Checking to see if all files in directory are used in code
+```
+
+```
+##    Problem: You have files in your project directory which are not being used.
+```
+
+```
+##    Solution: Use or delete files.
+```
+
+```
+##    See for help: ?fs::file_delete
+```
+
+```
+## # A tibble: 2 x 1
+##   path_abs                                                                      
+##   &lt;chr&gt;                                                                         
+## 1 /Users/audreybertin/Documents/thesis/index/slides/project_miceps/Estrogen_Rec…
+## 2 /Users/audreybertin/Documents/thesis/index/slides/project_miceps/mice.csv
+```
+]
+
+---
+## Component 2: organized project structure
+
+.small[
+
+
+```r
+files &lt;- proj_analyze_files("project_miceps")
+proj_suggest_moves(files)
+```
+
+```
+## # A tibble: 9 x 8
+##   file             size ext   mime     path_rel   dir_rel    path_new    cmd    
+##   &lt;fs::path&gt;   &lt;fs::by&gt; &lt;chr&gt; &lt;chr&gt;    &lt;fs::path&gt; &lt;fs::path&gt; &lt;fs::path&gt;  &lt;chr&gt;  
+## 1 project_mic…   14.43K csv   text/csv Blot_data… data-raw   project_mi… file_m…
+## 2 project_mic…    7.39K csv   text/csv CS_data_r… data-raw   project_mi… file_m…
+## 3 project_mic…   10.97K docx  applica… Estrogen_… inst/other project_mi… file_m…
+## 4 project_mic…    5.21K Rmd   text/x-… analysis.… vignettes  project_mi… file_m…
+## 5 project_mic…    1.41M html  text/ht… analysis.… inst/text  project_mi… file_m…
+## 6 project_mic…  189.24K png   image/p… citrate_v… inst/image project_mi… file_m…
+## 7 project_mic…   14.33K csv   text/csv mice.csv   data-raw   project_mi… file_m…
+## 8 project_mic…  374.69K png   image/p… proteins_… inst/image project_mi… file_m…
+## 9 project_mic…    5.34K txt   text/pl… software-… inst/text  project_mi… file_m…
+```
+
+]
+
+- `proj_move_files()`
+
+---
+## Component 3: documentation
+
+- `has_readme()`
+
+- `has_clear_build_chain()`
+
+- `has_well_commented_code()`
+
+.small[
+
+```r
+has_well_commented_code("project_miceps")
+```
+
+
+```
+## * Checking that code is adequately commented
+```
+
+```
+## Problem: Suboptimally commented .R or .Rmd files found
+```
+
+```
+## Solution: Add more comments to the files below. At least 10% of the
+## lines should be comments.
+```
+
+```
+## See for help: https://intelligea.wordpress.com/2013/06/30/inline-and-
+## block-comments-in-r/
+```
+
+```
+## # A tibble: 1 x 2
+##   file_name                   fraction_lines_commented
+##   &lt;chr&gt;                                          &lt;dbl&gt;
+## 1 project_miceps/analysis.Rmd                     0.04
+```
+]
+
+---
+## Component 3: documentation
+
+- `proj_dependency_report()`: runs project in new environment and captures `sessionInfo()`
+
+.small[
+
+```r
+install_script &lt;- proj_pkg_script("project_miceps")
+```
+
+
+```
+## Run this script to install the required packages for this R project.
+## Packages hosted on CRAN... install.packages(c( 'broom', 'dplyr',
+## 'fs', 'ggplot2', 'purrr', 'readr', 'rmarkdown', 'skimr', 'stargazer',
+## 'tidyr' )) Packages (likely) hosted on GitHub...
+```
+
+]
+
+---
+## Component 4: File Paths
+
+.small[
+
+```r
+read.csv("~/Desktop/my_data.csv")
+```
+
+
+```
+## Error: Detected absolute paths. Absolute paths are not reproducible
+## and will likely only work on your computer. If you would like
+## to continue anyway, please execute the following command:
+## utils::read.csv('~/Desktop/my_data.csv')
+```
+
+
+```r
+read_csv("../../../Desktop/my_data.csv")
+```
+
+
+```
+## Error: Detected paths that lead outside the project directory. Such paths
+## are not reproducible and will likely only work on your computer. If you
+## would like to continue anyway, please execute the following command:
+## readr::read_csv('../../../Desktop/my_data.csv')
+```
+
+
+
+```r
+setwd("project_miceps")
+```
+
+```
+## Error: setwd() is likely to break reproducibility. Use here::here() instead.
+```
+]
+
+---
+## Component 4: File Paths
+
+.small[
+
+```r
+proj_analyze_paths("project_miceps")
+```
+
+```
+## ── Generating reproducibility report... ──────────────────── fertile 1.1.9003 ──
+```
+
+```
+## Checking for absolute paths...
+```
+
+```
+## Checking for paths outside project directory...
+```
+
+```
+## # A tibble: 2 x 5
+##   path              path_abs             func    problem        solution        
+##   &lt;chr&gt;             &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;           
+## 1 /Users/audreyber… /Users/audreybertin… readr:… Absolute path… Use a relative …
+## 2 /Users/audreyber… /Users/audreybertin… readr:… Path is not c… Move the file a…
+```
+]
+
+- `check_path()`
+
+---
+## Component 5: randomness
+
+- Differentiate between `controlled` (seed) &amp; `uncontrolled` (no seed) randomness
+
+.small[
+
+```r
+has_no_randomness('project_miceps')
+```
+
+```
+## ● Checking for no randomness
+```
+
+```
+##    Problem: Your code uses randomness
+```
+
+```
+##    Solution: Set a seed using `set.seed()` to ensure reproducibility.
+```
+
+```
+##    See for help: ?set.seed
+```
+
+```
+## # A tibble: 1 x 2
+##   culprit expr                
+##   &lt;chr&gt;   &lt;glue&gt;              
+## 1 ?       Example: set.seed(1)
+```
+]
+
+---
+## Component 6: readability and style
+
+- `has_no_lint()`
+
+- `tidy` code style (Hadley Wickham)
+
+
+---
+## Summary of Components
+
+.small[
+&lt;img src="components-summary.png" width="1697" /&gt;
+]
+
+---
+## Overview functions
+
+- `proj_check()`: run all 16 individual checks
+
+- `proj_analyze()`: package dependencies, files, file move suggestions, paths
+
+- `proj_badges()`: earn/display badges for different components, summary of project generation info
+
+&lt;img src="structure-badge.png" width="15%" /&gt;&lt;img src="tidy-badge.png" width="15%" /&gt;&lt;img src="documentation-badge.png" width="15%" /&gt;&lt;img src="paths-badge.png" width="15%" /&gt;&lt;img src="randomness-badge.png" width="15%" /&gt;&lt;img src="style-badge.png" width="15%" /&gt;
+
+---
+## Overview functions
+
+&lt;img src="badges-1.png" width="80%" /&gt;
+
+---
+## Overview functions
+
+&lt;img src="badges-2.png" width="968" /&gt;
+
+---
+## Overview functions: more customizable
+
+- `proj_check_some()`: tidyselect
+- `proj_check_badge()`:
+
+- Functions to handle the interactive warning system:
+- `add_shim()`: add a new function to the system
+- `edit_shims()`: edit the functions that throw errors
+- `load_shims()`: turn on warning system
+- `unload_shims()`: turn off warning system
+
+---
+## How it works: shims
+
+- Invisibly intercept users' actions and alter them slightly
+
+1. Identify path-accepting function.
+2. Create function in `fertile` w/ same name/arguments (and the dots...)
+3. Write this new function so that it:
+
+a) captures any arguments,
+
+b) logs the name of the function called,
+
+c) performs `fertile` file path checks on these arguments, and
+
+d) calls the original function with the original arguments. 
+
+---
+## How it works: shims
+
+.small[
+
+```r
+fertile::read.csv
+```
+
+```
+## function(file, ...) {
+##   if (interactive_log_on()) {
+##     log_push(file, "utils::read.csv")
+##     check_path_safe(file, ... = "utils::read.csv")
+##     utils::read.csv(file, ...)
+##   }
+## }
+## &lt;bytecode: 0x7fcfb1f49418&gt;
+## &lt;environment: namespace:fertile&gt;
+```
+]
+
+---
+## How it works: the dots (...)
+
+- Shims must be flexible!
+- Definitions only explicitly include required args and path-related args
+- All other args accepted through dots
+
+
+---
+## How it works: hidden files
+
+- Hidden log files track user behavior (calls to shimmed functions, seeds, dependencies)
+- Update when `fertile` functions are run
+- Users can access them via `render_log_report()`, `log_report()`
+
+.small[
+
+```r
+render_log_report('project_miceps')
+```
+
+```
+## Reading from /Users/audreybertin/Documents/thesis/index/slides/project_miceps/.fertile_render_log.csv
+```
+
+```
+## # A tibble: 21 x 4
+##    path                    path_abs                  func    timestamp          
+##    &lt;chr&gt;                   &lt;chr&gt;                     &lt;chr&gt;   &lt;dttm&gt;             
+##  1 Seed @ Start            &lt;NA&gt;                      624     2021-04-14 16:48:29
+##  2 package:dplyr           &lt;NA&gt;                      base::… 2021-04-14 16:48:29
+##  3 package:readr           &lt;NA&gt;                      base::… 2021-04-14 16:48:29
+##  4 package:tidyr           &lt;NA&gt;                      base::… 2021-04-14 16:48:30
+##  5 package:ggplot2         &lt;NA&gt;                      base::… 2021-04-14 16:48:30
+##  6 package:purrr           &lt;NA&gt;                      base::… 2021-04-14 16:48:31
+##  7 Seed Before             &lt;NA&gt;                      624     2021-04-14 16:48:31
+##  8 /Users/audreybertin/Do… /Users/audreybertin/Docu… readr:… 2021-04-14 16:48:31
+##  9 Seed After              &lt;NA&gt;                      14      2021-04-14 16:48:32
+## 10 Seed Before             &lt;NA&gt;                      14      2021-04-14 16:48:32
+## # … with 11 more rows
+```
+]
+
+---
+## How it works: environment variables
+
+- Multiple hidden log files must be kept separate
+- Environment variables determine which file gets written to
+- When interactive --&gt; normal log
+- When rendering --&gt; render log
+
+
+---
+## Disclaimer on malware
+
+- `fertile` could be considered malware
+
+- Will likely not ever be on `CRAN`: significant number of dependencies, creating hidden files on users' computers, intercepting their behavior w/o knowledge
+
+- However: necessary for features to work, plus code is fully available on GitHub --&gt; complete transparency
+
+---
+## Review of Goals
+
+1) `Simple`: functions usually just take one or two arguments
+
+2) `Accessible`: no advanced coding knowledge required
+
+3) `Addresses multiple components`: all six components have functions
+
+4) `R-specific features`: package dependency management, randomness
+
+5) `Customizable`: editing warning system, choosing which checks to run
+
+6) `Educational`: warning messages, checks give explanations and recommendations on failure
+
+7) `Applicable in many domains`
+
+
+---
+## Potential applications: journal review
+
+- Drastically speed up review process, save money
+- Two methods: 1. Run fertile checks, 2. Require `proj_badges()` output
+
+
+&lt;img src="journal-process-2.png" width="960" /&gt;
+
+---
+## Potential applications: teaching reproducibility
+
+- Introduce reproducibility in undergrad classrooms
+
+- Limited barriers to entry:
+1. R and RStudio installed on their computer
+2. Knowledge of how to install a package from GitHub and load it into their
+environment
+3. Knowledge of how to create an R project
+4. Knowledge of how to run basic functions and input simple file paths
+
+
+---
+## Potential applications: miscellaneous
+
+- Private companies: increasing transparency w/ clients, building trust
+
+- Conferences: reproducibility standards as requirement for acceptance
+
+- Informal analysis: more reproducible work for events like `Tidy Tuesday` --&gt; share knowledge!
+
+---
+## Experimental testing: design
+
+- 2 Sessions: Fall 2020 (18 students), J-Term 2021 (38 students)
+- Students randomly divided into two groups: `fertile` and no `fertile` 
+- Students are unaware of group!
+- Measuring reproducibility: post-test (fall) and pre/post- tests (j-term)
+- Fall: Final Score, J-Term: Difference in scores
+
+---
+## Experimental testing: technical details
+
+How software groups were blinded:
+
+1. Provide us unique computer username / login name
+2. Convert that with `md5()` hashing algorithm 
+3. Assign hashed names to groups
+4. `sds192` package `.onAttach()` pulls username, hashes it, and compares to pre-written assignment
+5. If in `fertile` group, `fertile` secretly loaded. If not, just have access to basic `sds192` package features
+
+
+---
+
+## Experimental testing: results
+
+- What we found:
+
+1. No evidence of relationship between `fertile` and test score (or difference in scores)
+
+**Fall:** `Group` vs `Final Score` (-) --- p = 0.117, + `Previous Classes`: p = 0.08
+
+**J-Term:** `Group` vs `Score Differential` (+) --- p = 0.964, + `Previous Classes`: p = 0.968
+
+
+2. Fall results seemed to actually have `fertile` group scoring worse overall (not statistically significant), but this was somewhat reversed in `J-term`. `fertile` students started worse and finished worse, but made overall (slightly) larger score improvements—again, not significant!
+
+3. Students across both groups seemed to learn about reproducibility throughout the class
+
+
+---
+## Experimental testing: limitations
+
+- Small sample size
+- Non-independent subjects
+- Classroom environment not same as true testing environment
+- Experiment structure does not accurately represent real-world use of `fertile`
+- Very hard to know if the `fertile` group's software was behaving correctly the whole semester
+
+
+---
+## Experimental testing: implications
+
+- Not much in terms of `fertile`
+- However, potential for A/B testing of other R software
+
+&lt;img src="a-b_testing.png" width="1680" /&gt;
+
+
+---
+## Conclusion
+
+- `fertile`, regardless of experimental results, has potential to improve reproducibility
+- Fills gaps where other solutions---in software, education, or journal review--- fail
+- Appears to be gaining some traction. Even helping one person improve their reproducibility will be worth it!
+
+
+---
+## How to access project materials
+
+- GitHub repository for `fertile`: https://github.com/baumer-lab/fertile
+
+- My repository for `fertile`, to track my changes:
+https://github.com/ambertin/fertile
+
+- Repository for this thesis, containing additional text, figures, and experimental data:
+https://github.com/ ambertin/thesis
+
+---
+
+
+
+
+# .center[Questions?]
+
+
+---
+
+## Additional Info: Experiment 
+
+- `.onAttach()`:
+
+.tiny[
+
+```r
+# .onAttach() from the sds192 package
+# Run automatically any time the sds192 package is loaded
+
+.onAttach &lt;- function(libname, pkgname) {
+
+  # The experimental group gets `fertile` loaded secretly
+  if (is_experimental()) {
+    suppressMessages(library(fertile))
+  }
+}
+
+is_experimental &lt;- function(logname = whoami::username()) {
+  
+  # Students are placed into experimental and control
+  # groups but remain anonymous
+  fertile_group &lt;- c(
+    "f7b0a9d5117b88cecec122f8ba0e52fb",
+    "4d0295a810fb8491f91f914771572485",
+    "36211a1f19f82ae07aed990b671c9b20",
+    "b5d2b72b4f36f3afdce32a8409dc6ea0",
+    "d498227fd9e6a4c42494bbebc42f6aa8",
+    # ... and so on
+  )
+  control_group &lt;- c(
+    "9aa36583f54766205850428e8f1a4c89", 
+    "f03020938b31818063c79d2422755183", 
+    "7ec57b1f2bca9ac1e702fb68427b781b", 
+    "e5e30623e9d09d29ded851b7fb40cb51", 
+    "592572bb9fce168f37117fd0d6e0e5ee",
+    # ... and so on
+ 
+  )
+  
+
+  digest::digest(logname, algo = "md5") %in% fertile_group
+  
+}
+```
+]
+
+---
+## Additional Info: Experiment (Fall 2020)
+
+
+
+![](fertile_slides_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+---
+## Additional Info: Experiment (Fall 2020)
+
+
+![](fertile_slides_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+---
+## Additional Info: Experiment (Fall 2020)
+
+.small[
+
+```
+## 
+## Call:
+## lm(formula = Overall_Total ~ Group, data = fall2020)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -5.556 -2.556 -1.056  2.194  8.444 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     7.556      1.281   5.896 2.25e-05 ***
+## GroupFertile   -3.000      1.812  -1.655    0.117    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 3.844 on 16 degrees of freedom
+## Multiple R-squared:  0.1462,	Adjusted R-squared:  0.09288 
+## F-statistic: 2.741 on 1 and 16 DF,  p-value: 0.1173
+```
+]
+---
+## Additional Info: Experiment (Fall 2020)
+
+.small[
+
+
+```
+## 
+## Call:
+## lm(formula = Overall_Total ~ Group + Previous_Classes, data = fall2020)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -5.191 -2.197 -1.055  2.969  5.803 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        6.3714     1.4803   4.304 0.000627 ***
+## GroupFertile      -3.2733     1.7613  -1.858 0.082835 .  
+## Previous_Classes   0.8198     0.5615   1.460 0.164901    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 3.715 on 15 degrees of freedom
+## Multiple R-squared:  0.2525,	Adjusted R-squared:  0.1528 
+## F-statistic: 2.533 on 2 and 15 DF,  p-value: 0.1128
+```
+]
+
+---
+## Additional Info: Experiment (Jan 2021)
+
+![](fertile_slides_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
+
+
+---
+## Additional Info: Experiment (Jan 2021)
+
+
+
+
+
+.small[
+
+```
+## 
+## Call:
+## lm(formula = Score_Difference ~ Group, data = jterm_model_data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -14.150  -2.918   0.850   3.546   8.850 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)   2.15000    1.10658   1.943   0.0599 .
+## GroupFertile  0.07222    1.60783   0.045   0.9644  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 4.949 on 36 degrees of freedom
+## Multiple R-squared:  5.604e-05,	Adjusted R-squared:  -0.02772 
+## F-statistic: 0.002018 on 1 and 36 DF,  p-value: 0.9644
+```
+]
+
+---
+## Additional Info: Experiment (Jan 2021)
+
+.small[
+
+```
+## 
+## Call:
+## lm(formula = Score_Difference ~ Group + Previous_Classes, data = jterm_model_data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -13.395  -2.130   1.043   2.996   8.232 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)       3.45431    1.52672   2.263    0.030 *
+## GroupFertile      0.06459    1.59648   0.040    0.968  
+## Previous_Classes -0.68648    0.55789  -1.230    0.227  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 4.914 on 35 degrees of freedom
+## Multiple R-squared:  0.04152,	Adjusted R-squared:  -0.01325 
+## F-statistic: 0.7581 on 2 and 35 DF,  p-value: 0.4761
+```
+]
+
+---
+## Additional Info: Assumptions
+
+### Fall 2020
+
+&lt;img src="fertile_slides_files/figure-html/unnamed-chunk-41-1.png" width="50%" /&gt;&lt;img src="fertile_slides_files/figure-html/unnamed-chunk-41-2.png" width="50%" /&gt;
+
+---
+## Additional Info: Assumptions
+
+### Jan 2021
+
+&lt;img src="fertile_slides_files/figure-html/unnamed-chunk-42-1.png" width="50%" /&gt;&lt;img src="fertile_slides_files/figure-html/unnamed-chunk-42-2.png" width="50%" /&gt;
+
+---
+## Additional Info: Test Questions
+
+&lt;img src="test-4.png" width="80%" /&gt;
+
+---
+## Additional Info: Test Questions
+
+&lt;img src="test-8.png" width="80%" /&gt;
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
