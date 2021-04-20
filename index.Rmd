@@ -5,7 +5,7 @@ institute: "Smith College, '21"
 date: "April 29th, 2021"
 output:
   xaringan::moon_reader:
-    css: xaringan-themer.css
+    css: css/xaringan-themer.css
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -37,16 +37,13 @@ style_mono_light(base_color = "#23395b")
 }
 ```
 
-
-
----
 ## Overview
 
-1. What is reproducibility and why is it lacking?
-2. Other attempts to address reproducibility and their shortcomings
+1. What is reproducibility? Why is it lacking?
+2. Shortcomings of other attempts to address reproducibility
 3. Why `fertile` is different
 4. How `fertile` works
-5. Potential applications and Smith College experiment
+5. Potential applications & Smith experiment
 6. Conclusion
 7. Accessing project materials
 
@@ -190,6 +187,7 @@ background-size: 30%
 ### Component 6: Code is readable and consistently styled:
 
 - Coherent style
+
 - Follow guide (e.g. `tidyverse`)
 
 
@@ -215,6 +213,7 @@ knitr::include_graphics("images/stats-journals.png")
 ## Attempts to address reproducibility: educational programs
 
 - Replication studies at Graduate level (Cambridge, Harvard, UNC, Penn State, Berkeley)
+
 - At undergraduate level, requirement for work to be completed in `.Rmd` (Smith, Duke)
 
 ---
@@ -259,25 +258,25 @@ knitr::include_graphics('images/ci-tools.png')
     4. CI tools: lack software-specific tools 
 
 ---
+background-image: url("images/fertile-hex.png")
+background-position: right bottom
+background-size: 30%
+
 ## Setting `fertile` apart: package goals
 
-1) Be simple, with a small library of functions/tools that are straightforward to use.
+1) Simple and straightforward
 
-2) Be accessible to a variety of users, with a relatively small learning curve.
+2) Widely accessible (small learning curve)
 
-3) Be able to address a wide variety of aspects of reproducibility, rather than just
-one or two key issues.
+3) Addresses variety of reproducibility components
 
-4) Have features specific to a particular coding language that can address that
-language’s unique challenges.
+4) R-specific features
 
-5) Be customizable, allowing users to choose for themselves which aspects of
-reproducibility they want to focus on.
+5) Customizable to user needs
 
-6) Be educational, teaching those that use it about why their projects are not
-reproducible and how to correct that in the future.
+6) Educational
 
-7) Be applicable to a wide variety of domains.
+7) Applicable to many domains
 
 
 ---
@@ -308,8 +307,6 @@ has_readme("project_miceps")
 ---
 ## Component 1: accessible project files
 
-- `sandbox()`: copying project to temp directory
-
 - `proj_render()`
 
 .small[
@@ -319,6 +316,9 @@ proj_render("project_miceps")
 slice_tail(render_log_report('project_miceps'))
 ```
 ]
+
+- `sandbox()`: copying project to temp directory
+
 ---
 ## Component 2: organized project structure
 
@@ -344,7 +344,7 @@ proj_suggest_moves(files)
 
 ]
 
-- `proj_move_files()`
+- `proj_move_files()`: R package structure
 
 ---
 ## Component 3: documentation
@@ -379,6 +379,8 @@ errors[[1]]
 
 - `proj_dependency_report()`: runs project in new environment and captures `sessionInfo()`
 
+- `proj_pkg_script()`: build installation script for dependencies
+
 .small[
 ```{r, eval = FALSE}
 install_script <- proj_pkg_script("project_miceps")
@@ -396,6 +398,8 @@ cat(stringr::str_wrap(message_print, width = 70))
 
 ---
 ## Component 4: File Paths
+
+- Interactive warning system
 
 .small[
 ```{r, error=TRUE, eval = FALSE}
@@ -427,13 +431,14 @@ setwd("project_miceps")
 ---
 ## Component 4: File Paths
 
+- Analyze paths in project code
+
 .small[
 ```{r}
 proj_analyze_paths("project_miceps")
 ```
 ]
 
-- `check_path()`
 
 ---
 ## Component 5: randomness
@@ -494,13 +499,13 @@ knitr::include_graphics('images/badges-2.png')
 ## Overview functions: more customizable
 
 - `proj_check_some()`: tidyselect
-- `proj_check_badge()`:
+- `proj_check_badge()`: run checks by badge
 
 - Functions to handle the interactive warning system:
-- `add_shim()`: add a new function to the system
-- `edit_shims()`: edit the functions that throw errors
-- `load_shims()`: turn on warning system
-- `unload_shims()`: turn off warning system
+- `add_shim()`: add function
+- `edit_shims()`: edit functions
+- `load_shims()`: turn on warnings
+- `unload_shims()`: turn off warnings
 
 ---
 ## How it works: shims
@@ -508,7 +513,7 @@ knitr::include_graphics('images/badges-2.png')
 - Invisibly intercept users' actions and alter them slightly
 
 1. Identify path-accepting function.
-2. Create function in `fertile` w/ same name/arguments (and the dots...)
+2. Create function in `fertile` w/ same name & arguments (+ ...)
 3. Write this new function so that it:
 
 a) captures any arguments,
@@ -517,53 +522,41 @@ b) logs the name of the function called,
 
 c) performs `fertile` file path checks on these arguments, and
 
-d) calls the original function with the original arguments. 
+d) calls the original function with the original arguments (passed through ...). 
 
 ---
 ## How it works: shims
 
+- Sample shim for `utils::read.csv`
+
 .small[
+
 ```{r}
 fertile::read.csv
 ```
+
 ]
 
+--- 
 ---
-## How it works: the dots (...)
+## How it works: other techniques
 
-- Shims must be flexible!
-- Definitions only explicitly include required args and path-related args
-- All other args accepted through dots
-
-
----
-## How it works: hidden files
-
-- Hidden log files track user behavior (calls to shimmed functions, seeds, dependencies)
-- Update when `fertile` functions are run
-- Users can access them via `render_log_report()`, `log_report()`
-
-.small[
-```{r}
-render_log_report('project_miceps')
-```
-]
+- Hidden files created to track behavior:
+  - Log functions associated w/ reproducibility
+  - Save results of `proj_render`
+  
+- Environment variables determine which file `fertile` writes to
 
 ---
-## How it works: environment variables
 
-- Multiple hidden log files must be kept separate
-- Environment variables determine which file gets written to
-- When interactive --> normal log
-- When rendering --> render log
-
-
----
 ## Disclaimer on malware
 
 - `fertile` could be considered malware
 
-- Will likely not ever be on `CRAN`: significant number of dependencies, creating hidden files on users' computers, intercepting their behavior w/o knowledge
+- Will likely not ever be on `CRAN`: 
+    - Many dependencies
+    - Creating hidden files 
+    - Intercepting user behavior w/o knowledge
 
 - However: necessary for features to work, plus code is fully available on GitHub --> complete transparency
 
@@ -582,7 +575,7 @@ render_log_report('project_miceps')
 
 6) `Educational`: warning messages, checks give explanations and recommendations on failure
 
-7) `Applicable in many domains`
+7) `Applicable to many domains`
 
 
 ---
@@ -599,43 +592,39 @@ knitr::include_graphics('images/journal-process-2.png')
 ---
 ## Potential applications: teaching reproducibility
 
-- Introduce reproducibility in undergrad classrooms
+- Introduce reproducibility in more undergrad classrooms
 
 - Limited barriers to entry:
-1. R and RStudio installed on their computer
-2. Knowledge of how to install a package from GitHub and load it into their
-environment
-3. Knowledge of how to create an R project
-4. Knowledge of how to run basic functions and input simple file paths
+1. R and RStudio installed
+2. Know how to install/load GitHub package
+3. Know how to create an R project
+4. Can run basic functions & input simple file paths
 
-
----
-## Potential applications: miscellaneous
-
-- Private companies: increasing transparency w/ clients, building trust
-
-- Conferences: reproducibility standards as requirement for acceptance
-
-- Informal analysis: more reproducible work for events like `Tidy Tuesday` --> share knowledge!
 
 ---
 ## Experimental testing: design
 
 - 2 Sessions: Fall 2020 (18 students), J-Term 2021 (38 students)
-- Students randomly divided into two groups: `fertile` and no `fertile` 
-- Students are unaware of group!
+
+- Students randomly divided (w/ blinding) into two groups: `fertile` and no `fertile`
+
 - Measuring reproducibility: post-test (fall) and pre/post- tests (j-term)
+
 - Fall: Final Score, J-Term: Difference in scores
 
 ---
 ## Experimental testing: technical details
 
-How software groups were blinded:
+Blinding process
 
-1. Provide us unique computer username / login name
+1. Students provide unique computer username 
+
 2. Convert that with `md5()` hashing algorithm 
+
 3. Assign hashed names to groups
+
 4. `sds192` package `.onAttach()` pulls username, hashes it, and compares to pre-written assignment
+
 5. If in `fertile` group, `fertile` secretly loaded. If not, just have access to basic `sds192` package features
 
 
@@ -643,34 +632,41 @@ How software groups were blinded:
 
 ## Experimental testing: results
 
-- What we found:
-
-1. No evidence of relationship between `fertile` and test score (or difference in scores)
-
-**Fall:** `Group` vs `Final Score` (-) --- p = 0.117, + `Previous Classes`: p = 0.08
-
-**J-Term:** `Group` vs `Score Differential` (+) --- p = 0.964, + `Previous Classes`: p = 0.968
 
 
-2. Fall results seemed to actually have `fertile` group scoring worse overall (not statistically significant), but this was somewhat reversed in `J-term`. `fertile` students started worse and finished worse, but made overall (slightly) larger score improvements—again, not significant!
+- No evidence of relationship between `fertile` and test score (or difference in scores)
 
-3. Students across both groups seemed to learn about reproducibility throughout the class
+```{r, echo = FALSE, out.width = "60%", fig.align='center'}
+knitr::include_graphics("images/p-values.png")
+```
+
+
+- Fall: `fertile` group scored worse overall (not statistically significant) `r fontawesome::fa("arrow-circle-down")`
+
+- J-Term: `fertile` group started and finished worse, but but had bigger score improvements (also not statistically significant) `r fontawesome::fa("arrow-circle-up")`
+
+- Both groups seemed to learn about reproducibility throughout the class
 
 
 ---
 ## Experimental testing: limitations
 
 - Small sample size
+
 - Non-independent subjects
+
 - Classroom environment not same as true testing environment
-- Experiment structure does not accurately represent real-world use of `fertile`
-- Very hard to know if the `fertile` group's software was behaving correctly the whole semester
+
+- Not an accurate representation of the real-world use of `fertile`
+
+- Hard to know if  `fertile` group's software was behaving correctly the whole semester `r fontawesome::fa("laptop")`
 
 
 ---
 ## Experimental testing: implications
 
 - Not much in terms of `fertile`
+
 - However, potential for A/B testing of other R software
 
 ```{r, echo = FALSE}
@@ -682,20 +678,27 @@ knitr::include_graphics("images/a-b_testing.png")
 ## Conclusion
 
 - `fertile`, regardless of experimental results, has potential to improve reproducibility
+
 - Fills gaps where other solutions---in software, education, or journal review--- fail
+
 - Appears to be gaining some traction. Even helping one person improve their reproducibility will be worth it!
+
+```{r, echo = FALSE, out.width = "50%", fig.align = 'center'}
+knitr::include_graphics("images/oprah.jpg")
+```
+
 
 
 ---
 ## How to access project materials
 
-- GitHub repository for `fertile`: https://github.com/baumer-lab/fertile
+- `r fontawesome::fa("github")` (`fertile`): 
+https://github.com/baumer-lab/fertile / https://github.com/ambertin/fertile
 
-- My repository for `fertile`, to track my changes:
-https://github.com/ambertin/fertile
+- `r fontawesome::fa("github")` (`thesis`):
+https://github.com/ambertin/thesis
 
-- Repository for this thesis, containing additional text, figures, and experimental data:
-https://github.com/ ambertin/thesis
+- `r emo::ji("notebook")` `fertile` paper published in `Stat` journal: https://onlinelibrary.wiley.com/doi/epdf/10.1002/sta4.332
 
 ---
 
