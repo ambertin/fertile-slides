@@ -80,8 +80,8 @@ Vast majority cannot reproduce others' work, half not even their own.
 
 Some fields have reproducibility rate <10%.
 
-```{r, echo = FALSE, out.width = '50%', fig.align='right'}
-knitr::include_graphics("images/nature-1.jpeg")
+```{r, echo = FALSE, out.width = '50%'}
+knitr::include_graphics("images/nature-2.png")
 ```
 
 ---
@@ -148,21 +148,10 @@ background-size: 30%
 
 ### Component 4: Good file paths:
 
-- No absolute paths (starting @ root directory of computer / computer specific)
+- All paths should be written as relative to the project directory
 
-```{r, eval = FALSE}
-"/Users/audreybertin/Documents/fertile-slides/images/fertile-hex.png"
-```
-
-- No paths leading outside of a project’s directory
-
-- Only relative paths within directory!
-
-```{r, eval = FALSE}
-"images/fertile-hex.png"
-```
-
-
+    - No paths that are computer dependent!
+    - No paths that point outside the project directory (e.g. to the desktop)
 
 ---
 background-image: url("images/randomness-badge.png")
@@ -193,7 +182,13 @@ background-size: 30%
 ---
 ## Attempts to address reproducibility: journals
 
-```{r, echo = FALSE, out.width='80%'}
+Limitations:
+
+1. Inconsistent/weak
+2. Authors lack time/knowledge
+3. Costly for reviewers
+
+```{r, echo = FALSE, out.width='80%', fig.align='right'}
 knitr::include_graphics("images/stats-journals.png")
 ```
 
@@ -204,17 +199,20 @@ knitr::include_graphics("images/stats-journals.png")
 
 - At undergraduate level, requirement for work to be completed in `.Rmd` (Smith, Duke)
 
+Limitations:
+
+1. Most opportunities for graduates
+2. Takes time away from other class topics
+3. Takes time for professor to set up
+
 ---
 ## Attempts to address reproducibility: software
 
-- `rrtools`: create basic package structure, Docker dependency management
-- `orderly`: automation of projects
+- `rrtools` / `renv`: dependency management
+- `orderly` / `drake`: automation, makefiles
 - `workflowr`: version control
 - `checkers`: custom checks to assess reproducibility
-- `renv` (formerly `packrat`): dependency management
-- `drake`: makefiles
 - `reproducible`: caching to speed up analysis
-
 
 - Continuous integration tools: `wercker`, `GitHub Actions`, `Travis CI`, `Circle CI`.
 
@@ -222,26 +220,7 @@ knitr::include_graphics("images/stats-journals.png")
 knitr::include_graphics('images/ci-tools.png')
 ```
 
-
----
-## Shortcomings of current attempts
-
-- Journals:
-
-    1. Authors lack knowledge and/or time to make changes
-    2. Reproducibility review is time/cost intensive for journals
-
-- Education:
-
-    1. Only really at graduate level
-    2. Takes time away from other important class topics
-    3. Takes a lot of effort for professor to set up
-
-- Software:
-
-    1. Packages narrow in scope
-    2. Complex functions, bad for new users, big learning curve
-    3. CI tools: lack software-specific tools 
+Limiatations: 1. R packages narrow in scope, complex, big learning curve. 2. CI tools lack software specific features
 
 ---
 background-image: url("images/fertile-hex.png")
@@ -279,11 +258,9 @@ knitr::include_graphics('images/sample-project.png')
 
 ## Component 1: accessible project files
 
-.small[
+* Check for README
 
-```{r}
- proj_analyze_files("project_miceps")
-```
+.small[
 
 ```{r}
 has_readme("project_miceps")
@@ -292,6 +269,8 @@ has_readme("project_miceps")
 
 ---
 ## Component 1: accessible project files
+
+* Check that code/data are present:
 
 - `proj_render()`
 
@@ -321,6 +300,9 @@ has_only_used_files("project_miceps")
 ---
 ## Component 2: organized project structure
 
+- `proj_move_files()`: organize files to R package structure
+
+
 .small[
 
 ```{r}
@@ -330,14 +312,12 @@ proj_suggest_moves(files)
 
 ]
 
-- `proj_move_files()`: R package structure
-
 ---
 ## Component 3: documentation
 
 - `has_readme()`
 
-- `has_clear_build_chain()`
+- `has_clear_build_chain()`: file order clear
 
 - `has_well_commented_code()`
 
