@@ -74,22 +74,14 @@ knitr::include_graphics("images/fertile-hex.png")
 ---
 ## The reproducibility crisis
 
-*Nature (2016)*: 52% respondents claim "crisis"
+*Nature (2016)*: 90% of respondents claim reproducibility "crisis"
 
-Vast majority cannot reproduce others' work. 
-
-Half cannot even reproduce their own!
+Vast majority cannot reproduce others' work, half not even their own.
 
 Some fields have reproducibility rate <10%.
 
-```{r, echo = FALSE, out.width = '50%'}
+```{r, echo = FALSE, out.width = '50%', fig.align='right'}
 knitr::include_graphics("images/nature-1.jpeg")
-```
-
----
-## The reproducibility crisis
-```{r, echo = FALSE, out.width = '60%'}
-knitr::include_graphics("images/nature-2.png")
 ```
 
 ---
@@ -102,9 +94,7 @@ background-size: 30%
 
 ### Component 1: Basic project components made accessible to the public:
 
-- Data (raw and/or processed)
-
-- Metadata
+- Data (raw and/or processed) and metadata
 
 - Code
 
@@ -158,11 +148,11 @@ background-size: 30%
 
 ### Component 4: Good file paths:
 
-- No absolute paths
+- No absolute paths (starting @ root directory of computer / computer specific)
 
 - No paths leading outside of a project’s directory
 
-- Only relative paths within directory
+- Only relative paths within directory!
 
 
 ---
@@ -197,17 +187,6 @@ background-size: 30%
 ```{r, echo = FALSE, out.width='80%'}
 knitr::include_graphics("images/stats-journals.png")
 ```
-- Even if you have a reproducibility statement that does not mean that all the articles are reproducible!! 
-
----
-## Attempts to address reproducibility: journals
-
-### TOP Factor
-
-- Helps measure state of academic reproducibility on the whole
-- Score range: 0-30
-- Approx 50% of journals = 5 or below
-- Only 5% score > 15
 
 ---
 ## Attempts to address reproducibility: educational programs
@@ -245,17 +224,15 @@ knitr::include_graphics('images/ci-tools.png')
 
 - Education:
 
-    1. Workshops often optional
-    2. Only really at graduate level
-    3. Takes time away from other important class topics
-    4. Takes a lot of effort for professor to set up
+    1. Only really at graduate level
+    2. Takes time away from other important class topics
+    3. Takes a lot of effort for professor to set up
 
 - Software:
 
     1. Packages narrow in scope
-    2. Complex functions, bad for new users
-    3. Cumbersome, with steep learning curve
-    4. CI tools: lack software-specific tools 
+    2. Complex functions, bad for new users, big learning curve
+    3. CI tools: lack software-specific tools 
 
 ---
 background-image: url("images/fertile-hex.png")

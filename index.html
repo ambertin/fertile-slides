@@ -72,19 +72,13 @@ class: center, middle, inverse, title-slide
 ---
 ## The reproducibility crisis
 
-*Nature (2016)*: 52% respondents claim "crisis"
+*Nature (2016)*: 90% of respondents claim reproducibility "crisis"
 
-Vast majority cannot reproduce others' work. 
-
-Half cannot even reproduce their own!
+Vast majority cannot reproduce others' work, half not even their own.
 
 Some fields have reproducibility rate &lt;10%.
 
-&lt;img src="images/nature-1.jpeg" width="50%" /&gt;
-
----
-## The reproducibility crisis
-&lt;img src="images/nature-2.png" width="60%" /&gt;
+&lt;img src="images/nature-1.jpeg" width="50%" style="display: block; margin: auto 0 auto auto;" /&gt;
 
 ---
 background-image: url("images/tidy-badge.png")
@@ -96,9 +90,7 @@ background-size: 30%
 
 ### Component 1: Basic project components made accessible to the public:
 
-- Data (raw and/or processed)
-
-- Metadata
+- Data (raw and/or processed) and metadata
 
 - Code
 
@@ -152,11 +144,11 @@ background-size: 30%
 
 ### Component 4: Good file paths:
 
-- No absolute paths
+- No absolute paths (starting @ root directory of computer / computer specific)
 
 - No paths leading outside of a project’s directory
 
-- Only relative paths within directory
+- Only relative paths within directory!
 
 
 ---
@@ -189,17 +181,6 @@ background-size: 30%
 ## Attempts to address reproducibility: journals
 
 &lt;img src="images/stats-journals.png" width="80%" /&gt;
-- Even if you have a reproducibility statement that does not mean that all the articles are reproducible!! 
-
----
-## Attempts to address reproducibility: journals
-
-### TOP Factor
-
-- Helps measure state of academic reproducibility on the whole
-- Score range: 0-30
-- Approx 50% of journals = 5 or below
-- Only 5% score &gt; 15
 
 ---
 ## Attempts to address reproducibility: educational programs
@@ -235,17 +216,15 @@ background-size: 30%
 
 - Education:
 
-    1. Workshops often optional
-    2. Only really at graduate level
-    3. Takes time away from other important class topics
-    4. Takes a lot of effort for professor to set up
+    1. Only really at graduate level
+    2. Takes time away from other important class topics
+    3. Takes a lot of effort for professor to set up
 
 - Software:
 
     1. Packages narrow in scope
-    2. Complex functions, bad for new users
-    3. Cumbersome, with steep learning curve
-    4. CI tools: lack software-specific tools 
+    2. Complex functions, bad for new users, big learning curve
+    3. CI tools: lack software-specific tools 
 
 ---
 background-image: url("images/fertile-hex.png")
@@ -298,10 +277,10 @@ background-size: 30%
 ##  4 project_miceps/READ…       39 md    text/markdown              README.md     
 ##  5 project_miceps/anal…    5.21K Rmd   text/x-markdown            analysis.Rmd  
 ##  6 project_miceps/anal…    1.41M html  text/html                  analysis.html 
-##  7 project_miceps/citr…  187.63K png   image/png                  citrate_v_tim…
+##  7 project_miceps/citr…  187.07K png   image/png                  citrate_v_tim…
 ##  8 project_miceps/mice…   14.33K csv   text/csv                   mice.csv      
 ##  9 project_miceps/mice…      204 Rproj text/rstudio               miceps.Rproj  
-## 10 project_miceps/prot…  376.84K png   image/png                  proteins_v_ti…
+## 10 project_miceps/prot…  380.86K png   image/png                  proteins_v_ti…
 ## 11 project_miceps/soft…    5.34K txt   text/plain                 software-vers…
 ```
 
@@ -343,7 +322,7 @@ slice_tail(render_log_report('project_miceps'))
 ## # A tibble: 1 x 4
 ##   path          path_abs func        timestamp          
 ##   &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       &lt;dttm&gt;             
-## 1 LAST RENDERED &lt;NA&gt;     proj_render 2021-04-20 20:39:16
+## 1 LAST RENDERED &lt;NA&gt;     proj_render 2021-04-22 16:46:16
 ```
 ]
 
@@ -411,9 +390,9 @@ proj_suggest_moves(files)
 ## 3 project_mic…   10.97K docx  applica… Estrogen_… inst/other project_mi… file_m…
 ## 4 project_mic…    5.21K Rmd   text/x-… analysis.… vignettes  project_mi… file_m…
 ## 5 project_mic…    1.41M html  text/ht… analysis.… inst/text  project_mi… file_m…
-## 6 project_mic…  187.07K png   image/p… citrate_v… inst/image project_mi… file_m…
+## 6 project_mic…  185.23K png   image/p… citrate_v… inst/image project_mi… file_m…
 ## 7 project_mic…   14.33K csv   text/csv mice.csv   data-raw   project_mi… file_m…
-## 8 project_mic…  380.86K png   image/p… proteins_… inst/image project_mi… file_m…
+## 8 project_mic…   378.1K png   image/p… proteins_… inst/image project_mi… file_m…
 ## 9 project_mic…    5.34K txt   text/pl… software-… inst/text  project_mi… file_m…
 ```
 
@@ -682,7 +661,7 @@ fertile::read.csv
 ##     utils::read.csv(file, ...)
 ##   }
 ## }
-## &lt;bytecode: 0x7fba61cab690&gt;
+## &lt;bytecode: 0x7f95bcf6bee0&gt;
 ## &lt;environment: namespace:fertile&gt;
 ```
 
@@ -905,12 +884,12 @@ is_experimental &lt;- function(logname = whoami::username()) {
 
 
 
-![](index_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
 ---
 ## Additional Info: Experiment (Fall 2020)
 
 
-![](index_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
 ---
 ## Additional Info: Experiment (Fall 2020)
 
@@ -969,7 +948,7 @@ is_experimental &lt;- function(logname = whoami::username()) {
 ---
 ## Additional Info: Experiment (Jan 2021)
 
-![](index_files/figure-html/unnamed-chunk-38-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -1036,14 +1015,14 @@ is_experimental &lt;- function(logname = whoami::username()) {
 
 ### Fall 2020
 
-&lt;img src="index_files/figure-html/unnamed-chunk-42-1.png" width="50%" /&gt;&lt;img src="index_files/figure-html/unnamed-chunk-42-2.png" width="50%" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-41-1.png" width="50%" /&gt;&lt;img src="index_files/figure-html/unnamed-chunk-41-2.png" width="50%" /&gt;
 
 ---
 ## Additional Info: Assumptions
 
 ### Jan 2021
 
-&lt;img src="index_files/figure-html/unnamed-chunk-43-1.png" width="50%" /&gt;&lt;img src="index_files/figure-html/unnamed-chunk-43-2.png" width="50%" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-42-1.png" width="50%" /&gt;&lt;img src="index_files/figure-html/unnamed-chunk-42-2.png" width="50%" /&gt;
 
 ---
 ## Additional Info: Test Questions
