@@ -43,7 +43,7 @@ style_mono_light(base_color = "#23395b")
 2. Shortcomings of other attempts to address reproducibility
 3. Why `fertile` is different
 4. How `fertile` works
-5. Potential applications & Smith experiment
+5. Potential applications
 6. Conclusion
 7. Accessing project materials
 
@@ -528,6 +528,41 @@ knitr::include_graphics('images/journal-process-2.png')
 
 
 ---
+## Conclusion
+
+- `fertile`, regardless of experimental results, has potential to improve reproducibility
+
+- Fills gaps where other solutions---in software, education, or journal review--- fail
+
+- Appears to be gaining some traction. Even helping one person improve their reproducibility will be worth it!
+
+```{r, echo = FALSE, out.width = "50%", fig.align = 'center'}
+knitr::include_graphics("images/oprah.jpg")
+```
+
+
+
+---
+## How to access project materials
+
+- `r fontawesome::fa("github")` (`fertile`): 
+https://github.com/baumer-lab/fertile / https://github.com/ambertin/fertile
+
+- `r fontawesome::fa("github")` (`thesis`):
+https://github.com/ambertin/thesis
+
+- `r emo::ji("notebook")` `fertile` paper published in `Stat` journal: https://onlinelibrary.wiley.com/doi/epdf/10.1002/sta4.332
+
+---
+
+
+
+
+# .center[Questions?]
+
+
+---
+
 ## Experimental testing: design
 
 - 2 Sessions: Fall 2020 (18 students), J-Term 2021 (38 students)
@@ -598,41 +633,6 @@ knitr::include_graphics("images/p-values.png")
 ```{r, echo = FALSE}
 knitr::include_graphics("images/a-b_testing.png")
 ```
-
-
----
-## Conclusion
-
-- `fertile`, regardless of experimental results, has potential to improve reproducibility
-
-- Fills gaps where other solutions---in software, education, or journal review--- fail
-
-- Appears to be gaining some traction. Even helping one person improve their reproducibility will be worth it!
-
-```{r, echo = FALSE, out.width = "50%", fig.align = 'center'}
-knitr::include_graphics("images/oprah.jpg")
-```
-
-
-
----
-## How to access project materials
-
-- `r fontawesome::fa("github")` (`fertile`): 
-https://github.com/baumer-lab/fertile / https://github.com/ambertin/fertile
-
-- `r fontawesome::fa("github")` (`thesis`):
-https://github.com/ambertin/thesis
-
-- `r emo::ji("notebook")` `fertile` paper published in `Stat` journal: https://onlinelibrary.wiley.com/doi/epdf/10.1002/sta4.332
-
----
-
-
-
-
-# .center[Questions?]
-
 
 ---
 
