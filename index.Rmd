@@ -150,9 +150,18 @@ background-size: 30%
 
 - No absolute paths (starting @ root directory of computer / computer specific)
 
+```{r, eval = FALSE}
+"/Users/audreybertin/Documents/fertile-slides/images/fertile-hex.png"
+```
+
 - No paths leading outside of a project’s directory
 
 - Only relative paths within directory!
+
+```{r, eval = FALSE}
+"images/fertile-hex.png"
+```
+
 
 
 ---
