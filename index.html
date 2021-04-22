@@ -149,7 +149,7 @@ background-size: 30%
 - All paths should be written as relative to the project directory
 
     - No paths that are computer dependent!
-    - No paths that point outside the project directory (e.g. to the desktop)
+    - Don't point outside the project directory (e.g. to the desktop)
 
 ---
 background-image: url("images/randomness-badge.png")
@@ -205,7 +205,6 @@ Limitations:
 - `rrtools` / `renv`: dependency management
 - `orderly` / `drake` / `reproducible`: automation, makefiles
 - `workflowr`: version control
-- `checkers`: custom checks to assess reproducibility
 
 - Continuous integration tools: `wercker`, `GitHub Actions`, `Travis CI`, `Circle CI`.
 
@@ -247,62 +246,18 @@ background-size: 30%
 
 ## Component 1: accessible project files
 
-* Check for README
-
-.small[
-
-
-```r
-has_readme("project_miceps")
-```
-
-```
-## ✓ Checking for README file(s) at root level
-```
-]
-
----
-## Component 1: accessible project files
-
 * Check that code/data are present:
 
-- `proj_render()`
+- `proj_render()`: execute R files to ensure they compile
 
-.small[
-
-
-```r
-proj_render("project_miceps")
-```
-
-```
-## ── Rendering R scripts... ────────────────────────────────── fertile 1.1.9003 ──
-```
-
-```r
-slice_tail(render_log_report('project_miceps'))
-```
-
-```
-## Reading from /Users/audreybertin/Documents/fertile-slides/project_miceps/.fertile_render_log.csv
-```
-
-```
-## # A tibble: 1 x 4
-##   path          path_abs func        timestamp          
-##   &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       &lt;dttm&gt;             
-## 1 LAST RENDERED &lt;NA&gt;     proj_render 2021-04-22 18:54:55
-```
-]
-
-- `sandbox()`: copying project to temp directory
+- `sandbox()`: copying project to temp directory, ensure success when separated from file system
 
 ---
 ## Component 2: organized project structure
 
-- `has_proj_root()` / `has_no_nested_proj_root()`
+- `has_tidy_` series: check for file clutter 
 
-- `has_tidy_` series
+- `has_only_used_files()`: no unnecessary files
 
 .small[
 
@@ -344,31 +299,10 @@ has_only_used_files("project_miceps")
 
 - `proj_move_files()`: organize files to R package structure
 
+- Standardized structure, easily understood
 
-.small[
+- Simplifies process of converting to package later
 
-
-```r
-files &lt;- proj_analyze_files("project_miceps")
-proj_suggest_moves(files)
-```
-
-```
-## # A tibble: 9 x 8
-##   file             size ext   mime     path_rel   dir_rel    path_new    cmd    
-##   &lt;fs::path&gt;   &lt;fs::by&gt; &lt;chr&gt; &lt;chr&gt;    &lt;fs::path&gt; &lt;fs::path&gt; &lt;fs::path&gt;  &lt;chr&gt;  
-## 1 project_mic…   14.43K csv   text/csv Blot_data… data-raw   project_mi… file_m…
-## 2 project_mic…    7.39K csv   text/csv CS_data_r… data-raw   project_mi… file_m…
-## 3 project_mic…   10.97K docx  applica… Estrogen_… inst/other project_mi… file_m…
-## 4 project_mic…    5.21K Rmd   text/x-… analysis.… vignettes  project_mi… file_m…
-## 5 project_mic…    1.41M html  text/ht… analysis.… inst/text  project_mi… file_m…
-## 6 project_mic…  186.59K png   image/p… citrate_v… inst/image project_mi… file_m…
-## 7 project_mic…   14.33K csv   text/csv mice.csv   data-raw   project_mi… file_m…
-## 8 project_mic…  379.21K png   image/p… proteins_… inst/image project_mi… file_m…
-## 9 project_mic…    5.34K txt   text/pl… software-… inst/text  project_mi… file_m…
-```
-
-]
 
 ---
 ## Component 3: documentation
@@ -553,14 +487,6 @@ has_no_randomness('project_miceps')
 
 - `tidy` code style (Hadley Wickham)
 
-
----
-## Summary of Components
-
-.small[
-&lt;img src="images/components-summary.png" width="1697" /&gt;
-]
-
 ---
 ## Overview functions
 
@@ -631,13 +557,12 @@ fertile::read.csv
 ##     utils::read.csv(file, ...)
 ##   }
 ## }
-## &lt;bytecode: 0x7ffc577976a0&gt;
+## &lt;bytecode: 0x7fccd9eb6108&gt;
 ## &lt;environment: namespace:fertile&gt;
 ```
 
 ]
 
---- 
 ---
 ## How it works: other techniques
 
@@ -854,12 +779,12 @@ is_experimental &lt;- function(logname = whoami::username()) {
 
 
 
-![](index_files/figure-html/unnamed-chunk-32-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/unnamed-chunk-28-1.png)&lt;!-- --&gt;
 ---
 ## Additional Info: Experiment (Fall 2020)
 
 
-![](index_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
 ---
 ## Additional Info: Experiment (Fall 2020)
 
@@ -918,7 +843,7 @@ is_experimental &lt;- function(logname = whoami::username()) {
 ---
 ## Additional Info: Experiment (Jan 2021)
 
-![](index_files/figure-html/unnamed-chunk-36-1.png)&lt;!-- --&gt;
+![](index_files/figure-html/unnamed-chunk-32-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -985,14 +910,14 @@ is_experimental &lt;- function(logname = whoami::username()) {
 
 ### Fall 2020
 
-&lt;img src="index_files/figure-html/unnamed-chunk-40-1.png" width="50%" /&gt;&lt;img src="index_files/figure-html/unnamed-chunk-40-2.png" width="50%" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-36-1.png" width="50%" /&gt;&lt;img src="index_files/figure-html/unnamed-chunk-36-2.png" width="50%" /&gt;
 
 ---
 ## Additional Info: Assumptions
 
 ### Jan 2021
 
-&lt;img src="index_files/figure-html/unnamed-chunk-41-1.png" width="50%" /&gt;&lt;img src="index_files/figure-html/unnamed-chunk-41-2.png" width="50%" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-37-1.png" width="50%" /&gt;&lt;img src="index_files/figure-html/unnamed-chunk-37-2.png" width="50%" /&gt;
 
 ---
 ## Additional Info: Test Questions

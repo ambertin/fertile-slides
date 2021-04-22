@@ -153,7 +153,7 @@ background-size: 30%
 - All paths should be written as relative to the project directory
 
     - No paths that are computer dependent!
-    - No paths that point outside the project directory (e.g. to the desktop)
+    - Don't point outside the project directory (e.g. to the desktop)
 
 ---
 background-image: url("images/randomness-badge.png")
@@ -211,7 +211,6 @@ Limitations:
 - `rrtools` / `renv`: dependency management
 - `orderly` / `drake` / `reproducible`: automation, makefiles
 - `workflowr`: version control
-- `checkers`: custom checks to assess reproducibility
 
 - Continuous integration tools: `wercker`, `GitHub Actions`, `Travis CI`, `Circle CI`.
 
@@ -257,38 +256,18 @@ knitr::include_graphics('images/sample-project.png')
 
 ## Component 1: accessible project files
 
-* Check for README
-
-.small[
-
-```{r}
-has_readme("project_miceps")
-```
-]
-
----
-## Component 1: accessible project files
-
 * Check that code/data are present:
 
-- `proj_render()`
+- `proj_render()`: execute R files to ensure they compile
 
-.small[
-
-```{r}
-proj_render("project_miceps")
-slice_tail(render_log_report('project_miceps'))
-```
-]
-
-- `sandbox()`: copying project to temp directory
+- `sandbox()`: copying project to temp directory, ensure success when separated from file system
 
 ---
 ## Component 2: organized project structure
 
-- `has_proj_root()` / `has_no_nested_proj_root()`
+- `has_tidy_` series: check for file clutter 
 
-- `has_tidy_` series
+- `has_only_used_files()`: no unnecessary files
 
 .small[
 ```{r}
@@ -301,15 +280,10 @@ has_only_used_files("project_miceps")
 
 - `proj_move_files()`: organize files to R package structure
 
+- Standardized structure, easily understood
 
-.small[
+- Simplifies process of converting to package later
 
-```{r}
-files <- proj_analyze_files("project_miceps")
-proj_suggest_moves(files)
-```
-
-]
 
 ---
 ## Component 3: documentation
@@ -423,16 +397,6 @@ has_no_randomness('project_miceps')
 
 - `tidy` code style (Hadley Wickham)
 
-
----
-## Summary of Components
-
-.small[
-```{r, echo = FALSE}
-knitr::include_graphics('images/components-summary.png')
-```
-]
-
 ---
 ## Overview functions
 
@@ -502,7 +466,6 @@ fertile::read.csv
 
 ]
 
---- 
 ---
 ## How it works: other techniques
 
