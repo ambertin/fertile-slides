@@ -113,11 +113,10 @@ background-size: 30%
 
 ### Component 2: Well-organized file structure:
 
-- Separate folders for different file types
+- Separate folders for different file types + minimal clutter
 
 - No extraneous files
 
-- Minimal clutter
 
 
 ---
@@ -424,7 +423,7 @@ knitr::include_graphics('images/badges-2.png')
 ```
 
 ---
-## Overview functions: more customizable
+## Customization
 
 - `proj_check_some()`: run checks by keywords
 - `proj_check_badge()`: run checks by badge
