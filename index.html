@@ -76,9 +76,11 @@ class: center, middle, inverse, title-slide
 
 Vast majority cannot reproduce others' work, half not even their own.
 
-Some fields have reproducibility rate &lt;10%.
+Other studies have found that some fields have reproducibility rate &lt;10%.
 
 &lt;img src="images/nature-2.png" width="50%" /&gt;
+
+
 
 ---
 background-image: url("images/tidy-badge.png")
@@ -178,13 +180,11 @@ background-size: 30%
 ---
 ## Attempts to address reproducibility: journals
 
+&lt;img src="images/stats-journals.png" width="60%" /&gt;
+
 Limitations:
 
-1. Inconsistent/weak
-2. Authors lack time/knowledge
-3. Costly for reviewers
-
-&lt;img src="images/stats-journals.png" width="80%" style="display: block; margin: auto 0 auto auto;" /&gt;
+1. Inconsistent/weak,  2. Authors lack time/knowledge,  3. Costly for reviewers
 
 ---
 ## Attempts to address reproducibility: educational programs
@@ -203,16 +203,15 @@ Limitations:
 ## Attempts to address reproducibility: software
 
 - `rrtools` / `renv`: dependency management
-- `orderly` / `drake`: automation, makefiles
+- `orderly` / `drake` / `reproducible`: automation, makefiles
 - `workflowr`: version control
 - `checkers`: custom checks to assess reproducibility
-- `reproducible`: caching to speed up analysis
 
 - Continuous integration tools: `wercker`, `GitHub Actions`, `Travis CI`, `Circle CI`.
 
 &lt;img src="images/ci-tools.png" width="1047" /&gt;
 
-Limiatations: 1. R packages narrow in scope, complex, big learning curve. 2. CI tools lack software specific features
+Limitations: 1. R packages narrow in scope, complex, big learning curve. 2. CI tools lack software specific features
 
 ---
 background-image: url("images/fertile-hex.png")
@@ -292,7 +291,7 @@ slice_tail(render_log_report('project_miceps'))
 ## # A tibble: 1 x 4
 ##   path          path_abs func        timestamp          
 ##   &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       &lt;dttm&gt;             
-## 1 LAST RENDERED &lt;NA&gt;     proj_render 2021-04-22 17:26:34
+## 1 LAST RENDERED &lt;NA&gt;     proj_render 2021-04-22 18:54:55
 ```
 ]
 
@@ -363,9 +362,9 @@ proj_suggest_moves(files)
 ## 3 project_mic…   10.97K docx  applica… Estrogen_… inst/other project_mi… file_m…
 ## 4 project_mic…    5.21K Rmd   text/x-… analysis.… vignettes  project_mi… file_m…
 ## 5 project_mic…    1.41M html  text/ht… analysis.… inst/text  project_mi… file_m…
-## 6 project_mic…   184.9K png   image/p… citrate_v… inst/image project_mi… file_m…
+## 6 project_mic…  186.59K png   image/p… citrate_v… inst/image project_mi… file_m…
 ## 7 project_mic…   14.33K csv   text/csv mice.csv   data-raw   project_mi… file_m…
-## 8 project_mic…  378.27K png   image/p… proteins_… inst/image project_mi… file_m…
+## 8 project_mic…  379.21K png   image/p… proteins_… inst/image project_mi… file_m…
 ## 9 project_mic…    5.34K txt   text/pl… software-… inst/text  project_mi… file_m…
 ```
 
@@ -632,7 +631,7 @@ fertile::read.csv
 ##     utils::read.csv(file, ...)
 ##   }
 ## }
-## &lt;bytecode: 0x7f8297cb29b0&gt;
+## &lt;bytecode: 0x7ffc577976a0&gt;
 ## &lt;environment: namespace:fertile&gt;
 ```
 
