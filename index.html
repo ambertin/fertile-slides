@@ -184,7 +184,7 @@ background-size: 30%
 
 Limitations:
 
-1. Inconsistent/weak,  2. Authors lack time/knowledge,  3. Costly for reviewers
+1. Inconsistent/weak,  2. Often not used because a) Authors lack time/knowledge, or b) Costly for reviewers
 
 ---
 ## Attempts to address reproducibility: educational programs
@@ -303,7 +303,6 @@ has_only_used_files("project_miceps")
 
 - Simplifies process of converting to package later
 
-
 ---
 ## Component 3: documentation
 
@@ -349,7 +348,7 @@ has_well_commented_code("project_miceps")
 ---
 ## Component 3: documentation
 
-- `proj_dependency_report()`: runs project in new environment and captures `sessionInfo()`
+- `proj_dependency_report()`: captures a list of package dependencies and versions when project is executed in a new environment
 
 - `proj_pkg_script()`: build installation script for dependencies
 
@@ -490,7 +489,7 @@ has_no_randomness('project_miceps')
 ---
 ## Overview functions
 
-- `proj_check()`: run all 16 individual checks
+- `proj_check()`: run a variety of smaller functions addressing 6 components
 
 - `proj_analyze()`: package dependencies, files, file move suggestions, paths
 
@@ -511,7 +510,7 @@ has_no_randomness('project_miceps')
 ---
 ## Overview functions: more customizable
 
-- `proj_check_some()`: tidyselect
+- `proj_check_some()`: run checks by keywords
 - `proj_check_badge()`: run checks by badge
 
 - Functions to handle the interactive warning system:
@@ -557,7 +556,7 @@ fertile::read.csv
 ##     utils::read.csv(file, ...)
 ##   }
 ## }
-## &lt;bytecode: 0x7fccd9eb6108&gt;
+## &lt;bytecode: 0x7f8041692708&gt;
 ## &lt;environment: namespace:fertile&gt;
 ```
 
