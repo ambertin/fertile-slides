@@ -530,9 +530,9 @@ knitr::include_graphics('images/journal-process-2.png')
 ---
 ## Conclusion
 
-- `fertile`, regardless of experimental results, has potential to improve reproducibility
+- Currently a reproducibility crisis and existing solutions are inadequate
 
-- Fills gaps where other solutions---in software, education, or journal review--- fail
+- `fertile` fills gaps where other solutions---in software, education, or journal review--- fail
 
 - Appears to be gaining some traction. Even helping one person improve their reproducibility will be worth it!
 
