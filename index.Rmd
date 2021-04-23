@@ -372,10 +372,11 @@ setwd("project_miceps")
 
 .small[
 ```{r}
-proj_analyze_paths("project_miceps")
+has_no_absolute_paths("project_miceps")
 ```
 ]
 
+- `has_only_portable_paths()`: checks for paths outside directory
 
 ---
 ## Component 5: randomness
@@ -411,7 +412,7 @@ knitr::include_graphics(c("images/structure-badge.png", "images/tidy-badge.png",
 ---
 ## Overview functions
 
-```{r, echo = FALSE, out.width = '80%'}
+```{r, echo = FALSE, out.width = '75%'}
 knitr::include_graphics('images/badges-1.png')
 ```
 

@@ -418,30 +418,34 @@ setwd("project_miceps")
 .small[
 
 ```r
-proj_analyze_paths("project_miceps")
+has_no_absolute_paths("project_miceps")
 ```
 
 ```
-## ── Generating reproducibility report... ──────────────────── fertile 1.1.9003 ──
+## ● Checking for no absolute paths
 ```
 
 ```
-## Checking for absolute paths...
+##    Problem: Absolute paths are likely non-portable
 ```
 
 ```
-## Checking for paths outside project directory...
+##    Solution: Use relative paths. Move files if necessary.
 ```
 
 ```
-## # A tibble: 2 x 5
-##   path              path_abs             func    problem        solution        
-##   &lt;chr&gt;             &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;           
-## 1 /Users/audreyber… /Users/audreybertin… readr:… Absolute path… Use a relative …
-## 2 /Users/audreyber… /Users/audreybertin… readr:… Path is not c… Move the file a…
+##    See for help: ?fs::file_move; ?fs::path_rel
+```
+
+```
+## # A tibble: 1 x 2
+##   culprit                                  expr                                 
+##   &lt;fs::path&gt;                               &lt;glue&gt;                               
+## 1 /Users/audreybertin/Documents/fertile-s… fs::file_move('/Users/audreybertin/D…
 ```
 ]
 
+- `has_only_portable_paths()`: checks for paths outside directory
 
 ---
 ## Component 5: randomness
@@ -499,12 +503,12 @@ has_no_randomness('project_miceps')
 ---
 ## Overview functions
 
-&lt;img src="images/badges-1.png" width="80%" /&gt;
+&lt;img src="images/badges-1.png" width="75%" /&gt;
 
 ---
 ## Overview functions
 
-&lt;img src="images/badges-2.png" width="968" /&gt;
+&lt;img src="images/badges-2.png" width="965" /&gt;
 
 ---
 ## Customization
@@ -555,7 +559,7 @@ fertile::read.csv
 ##     utils::read.csv(file, ...)
 ##   }
 ## }
-## &lt;bytecode: 0x7fe738f84cd0&gt;
+## &lt;bytecode: 0x7f882b5fc7c8&gt;
 ## &lt;environment: namespace:fertile&gt;
 ```
 
