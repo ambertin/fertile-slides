@@ -547,7 +547,7 @@ fertile::read.csv
 ##     utils::read.csv(file, ...)
 ##   }
 ## }
-## &lt;bytecode: 0x7fa70f024358&gt;
+## &lt;bytecode: 0x7fa8d46324e8&gt;
 ## &lt;environment: namespace:fertile&gt;
 ```
 
@@ -556,24 +556,11 @@ fertile::read.csv
 ---
 ## How it works: other techniques
 
-- Hidden files created to track behavior:
+- Write to log files to record behavior
   - Log functions associated w/ reproducibility
   - Save results of `proj_render`
   
 - Environment variables determine which file `fertile` writes to
-
----
-
-## Disclaimer on malware
-
-- `fertile` could be considered malware
-
-- Will likely not ever be on `CRAN`: 
-    - Many dependencies
-    - Creating hidden files 
-    - Intercepting user behavior w/o knowledge
-
-- However: necessary for features to work, plus code is fully available on GitHub --&gt; complete transparency
 
 ---
 ## Review of Goals

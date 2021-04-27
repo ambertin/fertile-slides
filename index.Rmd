@@ -454,24 +454,11 @@ fertile::read.csv
 ---
 ## How it works: other techniques
 
-- Hidden files created to track behavior:
+- Write to log files to record behavior
   - Log functions associated w/ reproducibility
   - Save results of `proj_render`
   
 - Environment variables determine which file `fertile` writes to
-
----
-
-## Disclaimer on malware
-
-- `fertile` could be considered malware
-
-- Will likely not ever be on `CRAN`: 
-    - Many dependencies
-    - Creating hidden files 
-    - Intercepting user behavior w/o knowledge
-
-- However: necessary for features to work, plus code is fully available on GitHub --> complete transparency
 
 ---
 ## Review of Goals
