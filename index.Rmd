@@ -196,9 +196,8 @@ Limitations:
 
 Limitations:
 
-1. Most opportunities for graduates
+1. Most in-depth opportunities for graduates
 2. Takes time away from other class topics
-3. Takes time for professor to set up
 
 ---
 ## Attempts to address reproducibility: software
